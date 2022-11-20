@@ -16,7 +16,14 @@ public class ApiController {
 
     @GetMapping("/")
     public String getProduct() {
-        return "Welcome";
+        return "Welcome," + "\n" +
+                "Dit is de webAPI van Tim Van der Perre." + "\n" + "\n"
+                + "hoe te gebruiken:" + "\n"
+                + "/products (haalt alle producten op)\n" +
+                "  -/product/{id} (haalt product op met {id})\n" +
+                "  -/add (voegt product toe met automatisch gegenereerde id)\n" +
+                "  -/delete/{id} (verwijdert product op met {id})\n" +
+                "  -/update/{id} (update product op met {id})";
     }
 
     @GetMapping("/products")
