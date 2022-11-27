@@ -74,4 +74,25 @@ public class Product {
     public void setPicture_url(String picture_url) {
         this.picture_url = picture_url;
     }
+
+    public String getJsonValue(){
+        return "{"
+                + '\"' + "title" + '\"' + ":" + '\"' + title + '\"' + ","
+                + '\"' + "id" + '\"' + ":" +  id  + ","
+                + '\"' + "price" + '\"' + ":"  + price  + ","
+                + '\"' + "type" + '\"' + ":" + '\"' + type + '\"' + ","
+                + '\"' + "picture_url" + '\"' + ":" + '\"' + picture_url + '\"'
+                +  '}';
+    }
+    @Override
+    public String toString() {
+        return "Product{" +
+                "title='" + title + '\'' +
+                ", id=" + id +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", picture_url='" + picture_url + '\'' +
+                '}';
+    }
 }

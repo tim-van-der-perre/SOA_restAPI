@@ -2,17 +2,17 @@ package com.Create.API.rest.Controller;
 
 
 import com.Create.API.rest.Models.Product;
-import com.Create.API.rest.Repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 public class ApiController {
 
     @Autowired
-    private com.Create.API.rest.Repo.ProductRepo productRepo;
+    public com.Create.API.rest.Repo.ProductRepo productRepo;
 
     @GetMapping("/")
     public String getProduct() {
