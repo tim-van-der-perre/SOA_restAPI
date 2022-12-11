@@ -31,10 +31,13 @@ public class KafkaConsumer {
     @Autowired
     public ProductRepo productRepo;
 
+    /*
     @KafkaListener(topics = "kafka_example")
     public void consume(String message) {
         System.out.println("Consumed message:" + message);
     }
+
+     */
 
     @KafkaListener(topics = "Anime-response", groupId = "groupId")
     void listenertest(String data){
