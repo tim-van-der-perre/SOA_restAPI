@@ -19,6 +19,17 @@ public class Product {
     @Column
     private String picture_url;
 
+    public Product(String title, String description, float price, String picture_url) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.type = "Anime";
+        this.picture_url = picture_url;
+    }
+
+    public Product() {
+
+    }
 
     public String getTitle() {
         return title;

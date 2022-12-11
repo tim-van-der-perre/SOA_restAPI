@@ -10,7 +10,7 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic test(){
-        return TopicBuilder.name("product-confirmations")
+        return TopicBuilder.name("Anime-response")
                 .build();
     }
 
