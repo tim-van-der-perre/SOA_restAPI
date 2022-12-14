@@ -44,7 +44,9 @@ public class ApiController {
     @PutMapping("/update/{id}")
     public String updateProduct(@PathVariable long id, @RequestBody Product product) {
         Product updatedProduct = productRepo.findById(id).get();
-        if (updatedProduct == null) {return "niks gevonden";}
+        if (updatedProduct == null) {
+            System.out.println("apicontroller vind niet.");
+            return "niks gevonden";}
         updatedProduct.setDescription(product.getDescription());
         updatedProduct.setId(product.getId());
         updatedProduct.setTitle(product.getTitle());
