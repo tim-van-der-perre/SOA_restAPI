@@ -103,12 +103,9 @@ public class KafkaConsumer {
 
     private void anime_request_update(JSONObject ob) throws JSONException {
         try {
-            System.out.println("1");
             this.product = ob.getJSONObject("param");
-            System.out.println("2");
             long id = product.getLong("id");
             this.anime = productRepo.findById(id).get();
-            System.out.println("3");
             String title = product.getString("title");
             float price = product.getInt("price");
             String description = product.getString("description");
@@ -117,9 +114,7 @@ public class KafkaConsumer {
             this.anime.setPrice(price);
             this.anime.setDescription(description);
             this.anime.setPicture_url(picture_url);
-            System.out.println("4");
             productRepo.save(anime);
-            System.out.println("5");
             JSONObject message = new JSONObject();
             message.put("type", this.type);
             message.put("requestId", this.requestId);
@@ -130,7 +125,6 @@ public class KafkaConsumer {
             productRepo.save(anime);
             kafkaTemplate.send("anime-response", message.toString());
         } catch (Exception e){
-            System.out.println("6 laatste");
             JSONObject message = new JSONObject();
             message.put("type", this.type);
             message.put("requestId", this.requestId);

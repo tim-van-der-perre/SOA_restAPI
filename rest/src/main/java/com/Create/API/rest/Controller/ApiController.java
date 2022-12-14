@@ -48,11 +48,12 @@ public class ApiController {
             System.out.println("apicontroller vind niet.");
             return "niks gevonden";}
         updatedProduct.setDescription(product.getDescription());
-        updatedProduct.setId(product.getId());
+        //updatedProduct.setId(id);
         updatedProduct.setTitle(product.getTitle());
         updatedProduct.setType(product.getType());
         updatedProduct.setPrice(product.getPrice());
         updatedProduct.setPicture_url(product.getPicture_url());
+        productRepo.save(updatedProduct);
         return "updated  ...";
     }
     @DeleteMapping("/delete/{id}")
