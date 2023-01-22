@@ -104,7 +104,7 @@ public class KafkaConsumer {
     private void anime_request_update(JSONObject ob) throws JSONException {
         try {
             this.product = ob.getJSONObject("param");
-            int id = product.getLong("id");
+            long id = product.getLong("id");
             this.anime = productRepo.findById(id).get();
             String title = product.getString("title");
             float price = product.getInt("price");
