@@ -24,7 +24,7 @@ public class KafkaConsumer {
     Product anime;
     JSONObject product;
     String type;
-    long requestId;
+    int requestId;
     long param;
     List<Product> list;
 
@@ -74,7 +74,7 @@ public class KafkaConsumer {
     private void anime_request_delete(JSONObject ob) throws JSONException {
         try {
 
-            int id = ob.getInt("param");
+            long id = ob.getInt("param");
             this.anime = productRepo.findById(id).get();
             productRepo.deleteById(id);
 
@@ -87,7 +87,7 @@ public class KafkaConsumer {
             System.out.println("anime_request_delete stuurt deze message: " + message);
             kafkaTemplate.send("product-confirmations", message.toString());
         } catch (Exception e) {
-            int id = ob.getInt("param");
+            long id = ob.getInt("param");
             JSONObject message = new JSONObject();
             message.put("type", this.type);
             message.put("requestId", this.requestId);
@@ -199,7 +199,7 @@ public class KafkaConsumer {
     //MET ID IN PARAM getrequest
     private void anime_request_get(JSONObject ob) throws JSONException {
         try {
-            int id = ob.getInt("param");
+            long id = ob.getInt("param");
             this.anime = productRepo.findById(id).get();
             System.out.println("anime_request_get krijgt request voor: " + anime);
             JSONObject getanime = new JSONObject();
