@@ -39,7 +39,7 @@ public class KafkaConsumer {
 
      */
 
-    @KafkaListener(topics = "Anime-response", groupId = "groupId")
+    @KafkaListener(topics = "product-confirmations", groupId = "groupId")
     void listenertest(String data){
         System.out.println("confirmation received");
         System.out.println(data);
@@ -85,7 +85,7 @@ public class KafkaConsumer {
             message.put("status", "ok");
             message.put("error", "null");
             System.out.println("anime_request_delete stuurt deze message: " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         } catch (Exception e) {
             int id = ob.getInt("param");
             JSONObject message = new JSONObject();
@@ -96,7 +96,7 @@ public class KafkaConsumer {
             message.put("error", "null");
             System.out.println("ERROR gevangen!!!! --> nok");
             System.out.println("anime_request_delete stuurt deze message: " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
 
         }
     }
@@ -123,7 +123,7 @@ public class KafkaConsumer {
             message.put("error", "null");
             System.out.println("anime_request_udpate stuurt deze message: " + message);
             productRepo.save(anime);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         } catch (Exception e){
             JSONObject message = new JSONObject();
             message.put("type", this.type);
@@ -133,7 +133,7 @@ public class KafkaConsumer {
             message.put("error", "null");
             System.out.println("ERROR gevangen!!!! --> nok");
             System.out.println("anime_request_udpate stuurt deze message: " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         }
 
     }
@@ -155,7 +155,7 @@ public class KafkaConsumer {
             message.put("error", "null");
             System.out.println("anime_request_post stuurt deze message: " + message);
             productRepo.save(anime);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         } catch (Exception e){
             JSONObject message = new JSONObject();
             message.put("type", this.type);
@@ -165,7 +165,7 @@ public class KafkaConsumer {
             message.put("error", e);
             System.out.println("ERROR gevangen!!!! --> nok");
             System.out.println("anime_request_post stuurt deze message: " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         }
 
     }
@@ -183,7 +183,7 @@ public class KafkaConsumer {
             message.put("status", "ok");
             message.put("error", "null");
             System.out.println("anime_request_list stuurt deze message: " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         } catch (Exception e){
             JSONObject message = new JSONObject();
             message.put("type", this.type);
@@ -192,7 +192,7 @@ public class KafkaConsumer {
             message.put("error", "e");
             System.out.println("ERROR gevangen!!!! --> nok");
             System.out.println("anime_request_list stuurt deze message: " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         }
     }
 
@@ -217,7 +217,7 @@ public class KafkaConsumer {
             message.put("status", "ok");
             message.put("error", "null");
             System.out.println("anime_request_get stuurt deze message : " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("aproduct-confirmations", message.toString());
 
         } catch (Exception e){
             JSONObject message = new JSONObject();
@@ -228,7 +228,7 @@ public class KafkaConsumer {
             message.put("error", "null");
             System.out.println("ERROR gevangen!!!! --> nok");
             System.out.println("anime_request_get stuurt deze message : " + message);
-            kafkaTemplate.send("anime-response", message.toString());
+            kafkaTemplate.send("product-confirmations", message.toString());
         }
     }
     /*
