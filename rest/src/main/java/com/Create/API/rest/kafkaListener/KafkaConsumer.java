@@ -48,6 +48,7 @@ public class KafkaConsumer {
     //  LUISTEREN EN VERDELEN AAN HAND VAN TYPE REQUEST
     @KafkaListener(topics = "anime", containerFactory = "productKafkaListenerFactory")
     public void anime_request(String data) throws JSONException {
+        try{
         System.out.println("kafkalistener krijgt: " + data);
         JSONObject ob = new JSONObject(data);
         this.type = ob.getString("type");
@@ -68,7 +69,8 @@ public class KafkaConsumer {
             case "delete":
                 anime_request_delete(ob);
                 break;
-        }
+        }}
+        catch exception{"exception in switch case" }
     }
 
     private void anime_request_delete(JSONObject ob) throws JSONException {
