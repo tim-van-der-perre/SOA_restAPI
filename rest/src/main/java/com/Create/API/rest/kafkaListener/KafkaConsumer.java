@@ -46,7 +46,7 @@ public class KafkaConsumer {
     }
 
     //  LUISTEREN EN VERDELEN AAN HAND VAN TYPE REQUEST
-    @KafkaListener(topics = "Anime-request", containerFactory = "productKafkaListenerFactory")
+    @KafkaListener(topics = "anime", containerFactory = "productKafkaListenerFactory")
     public void anime_request(String data) throws JSONException {
         System.out.println("kafkalistener krijgt: " + data);
         JSONObject ob = new JSONObject(data);
